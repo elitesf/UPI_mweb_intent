@@ -1,0 +1,8 @@
+{
+  "default_applications": [
+    "https://aayushtl.netlify.app/payment-apay.json"
+  ],
+  "supported_origins": [
+    "https://aayushtl.netlify.app"
+  ]
+}
