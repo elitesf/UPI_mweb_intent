@@ -9,7 +9,15 @@
 <body>
   <div id="contents">
     <h1>Apay mIntent Test</h1>
-    <p><button style="font-weight: bolder;" onclick="onCheckoutClick()">Check Amazon Pay Present</button></p>
+    
+    <p>
+      <button style="font-weight: bolder;" onclick="onCheckoutClick()">Check mShop Present</button>
+    </p>
+
+     <p>
+      <button style="font-weight: bolder;" onclick="launchAmazonPayUPIIntent()">Launch UPI intent using amazonpay://</button>
+    </p>
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -74,6 +82,13 @@
             console.error("Error completing payment:", err);
         });
     }
+
+    function launchAmazonPayUPIIntent() {
+        const upiIntentUrl = "amazonpay://upi/pay?sukritinpal@okicici&pn=Sukritin";
+        console.log("launchAmazonPayUPIIntent: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
   </script>
 </body>
 </html>
