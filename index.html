@@ -9,13 +9,29 @@
 <body>
   <div id="contents">
     <h1>Apay mIntent Test</h1>
-    
+
     <p>
-      <button style="font-weight: bolder;" onclick="onCheckoutClick()">Check mShop Present</button>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_amazonpay()">Launch UPI intent - amazonpay://</button>
     </p>
 
-     <p>
-      <button style="font-weight: bolder;" onclick="launchAmazonPayUPIIntent()">Launch UPI intent using amazonpay://</button>
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_phonepe()">Launch UPI intent - phonepe://</button>
+    </p>
+
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_mShopAppId()">Launch UPI intent - in.amazon.mShop.android.shopping://pay?</button>
+    </p>
+
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_ApayAppId()">Launch UPI intent - in.amazon.mShop.android.amazon.pay://pay?</button>
+    </p>
+
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_mShopAppId_2()">Launch UPI intent - in.amazon.mShop.android.shopping://upi/pay?</button>
+    </p>
+
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_ApayAppId_2()">Launch UPI intent - in.amazon.mShop.android.amazon.pay://upi/pay?</button>
     </p>
 
   </div>
@@ -24,70 +40,42 @@
   <div id="responseOutput"></div>
 
   <script>
-    let request;
-
-    function buildPaymentRequest() {
-        if (!window.PaymentRequest) {
-            console.error("PaymentRequest API is not supported.");
-            return null;
-        }
-
-        const supportedInstruments = [{
-            supportedMethods: 'https://aayushtl.netlify.app/',
-            data: {
-                url: "upi://pay?pa=MERCHANT@ybl&pn=merchant&am=1.00&mam=1.00&tr=7ad44192-69f3-4e38-bebe-8c4944c5bbc6&tn=Payment+for+7ad44192-69f3-4e38-bebe-8c4944c5bbc6&mc=5311&mode=04&purpose=00"
-            }
-        }];
-
-        const details = {
-            id: "1111-71ca4e9f-748c-4de7-af7b-000000001111-temp",
-            total: {
-                label: 'Total',
-                amount: { currency: 'INR', value: '100' }
-            }
-        };
-
-        try {
-            request = new PaymentRequest(supportedInstruments, details);
-            console.log("PaymentRequest created:", request);
-
-            request.canMakePayment().then(function(result) {
-                console.log("canMakePayment:", result);
-                alert("canMakePayment - " + result);
-            }).catch(function(err) {
-                console.error("Error in canMakePayment:", err);
-                alert("Error in canMakePayment: " + err);
-            });
-
-        } catch (e) {
-            console.error("Error in building PaymentRequest:", e);
-        }
-    }
-
-    function onCheckoutClick() {
-        buildPaymentRequest();
-    }
-
-    function handlePaymentResponse(response) {
-        console.log("PaymentResponse received:", response);
-        document.getElementById("responseOutput").innerHTML = `
-            <h3>Payment Response</h3>
-            <p><strong>Method Name:</strong> ${response.methodName}</p>
-            <p><strong>Details:</strong> ${JSON.stringify(response.details)}</p>
-            <p><strong>Payer Name:</strong> ${response.payerName}</p>
-            <p><strong>Payer Email:</strong> ${response.payerEmail}</p>
-            <p><strong>Payer Phone:</strong> ${response.payerPhone}</p>
-        `;
-        response.complete("success").catch((err) => {
-            console.error("Error completing payment:", err);
-        });
-    }
-
-    function launchAmazonPayUPIIntent() {
+    function launchUPIIntentUsing_amazonpay() {
         const upiIntentUrl = "amazonpay://upi/pay?pa=sukritinpal@okicici&pn=Sukritin";
-        console.log("launchAmazonPayUPIIntent: ", upiIntentUrl);
+        console.log("launchUPIIntentUsing_amazonpay: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
+
+    function launchUPIIntentUsing_phonepe() {
+        const upiIntentUrl = "phonepe://pay?mc=5817&pa=airmenus.rzp@axisbank&pn=AirMenus&tr=NQ4NGlkjAP4nny&tn=PaymenttoLoveCrumble&am=423.00&cu=INR";
+        console.log("launchUPIIntentUsing_phonepe: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_mShopAppId() {
+        const upiIntentUrl = "in.amazon.mShop.android.shopping://pay?pa=amznlpa-dmlryr3lov@apl&pn=Amazon%20Pay&mc=6540&tr=i93r3IkfisTKCT8FGxS8KmW2TjIjcvQEWCO&tn=You%20are%20paying%20for%20an%20Amazon%20Pay%20order&am=1858.46&cu=INR";
+        console.log("launchUPIIntentUsing_mShopAppId: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_ApayAppId() {
+        const upiIntentUrl = "in.amazon.mShop.android.amazon.pay://pay?pa=amznlpa-dmlryr3lov@apl&pn=Amazon%20Pay&mc=6540&tr=i93r3IkfisTKCT8FGxS8KmW2TjIjcvQEWCO&tn=You%20are%20paying%20for%20an%20Amazon%20Pay%20order&am=1858.46&cu=INR";
+        console.log("launchUPIIntentUsing_ApayAppId: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_mShopAppId_2() {
+        const upiIntentUrl = "in.amazon.mShop.android.shopping://upi/pay?pa=amznlpa-dmlryr3lov@apl&pn=Amazon%20Pay&mc=6540&tr=i93r3IkfisTKCT8FGxS8KmW2TjIjcvQEWCO&tn=You%20are%20paying%20for%20an%20Amazon%20Pay%20order&am=1858.46&cu=INR";
+        console.log("launchUPIIntentUsing_mShopAppId_2: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_ApayAppId_2() {
+        const upiIntentUrl = "in.amazon.mShop.android.amazon.pay://upi/pay?pa=amznlpa-dmlryr3lov@apl&pn=Amazon%20Pay&mc=6540&tr=i93r3IkfisTKCT8FGxS8KmW2TjIjcvQEWCO&tn=You%20are%20paying%20for%20an%20Amazon%20Pay%20order&am=1858.46&cu=INR";
+        console.log("launchUPIIntentUsing_ApayAppId_2: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+    
 
   </script>
 </body>
