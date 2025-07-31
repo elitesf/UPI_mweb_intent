@@ -34,6 +34,10 @@
       <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_ApayAppId_2()">Launch UPI intent - in.amazon.mShop.android.amazon.pay://upi/pay?</button>
     </p>
 
+     <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_Intent()">Launch UPI intent - intent://?</button>
+    </p>
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -73,6 +77,12 @@
     function launchUPIIntentUsing_ApayAppId_2() {
         const upiIntentUrl = "in.amazon.mShop.android.amazon.pay://upi/pay?pa=amznlpa-dmlryr3lov@apl&pn=Amazon%20Pay&mc=6540&tr=i93r3IkfisTKCT8FGxS8KmW2TjIjcvQEWCO&tn=You%20are%20paying%20for%20an%20Amazon%20Pay%20order&am=1.00&cu=INR";
         console.log("launchUPIIntentUsing_ApayAppId_2: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_Intent() {
+        const upiIntentUrl = "intent://pay?pa=customer@apl&pn=customer&mc=PayeeMcc&tid=APLMe5cd741f111e1f5524e2fb403a58933&tr=APLMe5cd741f111e1f5524e2fb403a58933&cu=INR&tn=TestRemarks&am=100.00&sit=Y#Intent;scheme=upi;package=in.amazon.mShop.android.amazon.pay;end";
+        console.log("launchUPIIntentUsing_ApayAppId: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
     
