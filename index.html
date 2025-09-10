@@ -38,6 +38,10 @@
       <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_Intent()">Launch UPI intent - intent://pay? and package=in.amazon.mShop.android.amazon.pay</button>
     </p>
 
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_Digitalrupee()">Launch UPI intent - digitalrupee: </button>
+    </p>
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -83,6 +87,12 @@
     function launchUPIIntentUsing_Intent() {
         const upiIntentUrl = "intent://pay?pa=customer@apl&pn=customer&mc=PayeeMcc&tid=APLMe5cd741f111e1f5524e2fb403a58933&tr=APLMe5cd741f111e1f5524e2fb403a58933&cu=INR&tn=TestRemarks&am=100.00&sit=Y#Intent;scheme=upi;package=in.amazon.mShop.android.amazon.pay;end";
         console.log("launchUPIIntentUsing_ApayAppId: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_Digitalrupee() {
+        const upiIntentUrl = "digitalrupee://pay?ver=01&mode=04&orgid=000000&pa=sdglivefix1@yapl&pn=name";
+        console.log("launchUPIIntentUsing_Digitalrupee: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
     
