@@ -54,6 +54,10 @@
       <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_SBI_Intent()">Launch SBI intent : </button>
     </p>
 
+     <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_ICICI_Intent()">Launch ICICI intent : </button>
+    </p>
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -125,7 +129,12 @@
         console.log("launchUPIIntentUsing_SBI_Intent: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
-    
+
+    function launchUPIIntentUsing_ICICI_Intent() {
+        const upiIntentUrl = "intent://pay?pa=sdglivefix1@yapl&pn=name#Intent;scheme=upi;package=com.icici.digitalrupee;end";
+        console.log("launchUPIIntentUsing_ICICI_Intent: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
 
   </script>
 </body>
