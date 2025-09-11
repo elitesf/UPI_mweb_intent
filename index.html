@@ -121,7 +121,7 @@
     }
 
     function launchUPIIntentUsing_SBI_Intent() {
-        const upiIntentUrl = "intent://pay?pa=sdglivefix1@yapl&pn=name;scheme=upi;package=org.npci.erupeeSBI;end";
+        const upiIntentUrl = "upi://pay?pa=sdglivefix1@yapl&pn=name;package=org.npci.erupeeSBI;end";
         console.log("launchUPIIntentUsing_SBI_Intent: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
