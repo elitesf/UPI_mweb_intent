@@ -50,6 +50,10 @@
       <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_UPI_generic()">Launch UPI generic : </button>
     </p>
 
+    <p>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_SBI_Intent()">Launch SBI intent : </button>
+    </p>
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -113,6 +117,12 @@
     function launchUPIIntentUsing_UPI_generic() {
         const upiIntentUrl = "upi://pay?pa=sdglivefix1@yapl&pn=name";
         console.log("launchUPIIntentUsing_UPI_generic: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIIntentUsing_SBI_Intent() {
+        const upiIntentUrl = "intent://pay?pa=sdglivefix1@yapl&pn=name;scheme=upi;package=org.npci.erupeeSBI;end";
+        console.log("launchUPIIntentUsing_SBI_Intent: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
     
