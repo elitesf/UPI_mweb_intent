@@ -47,7 +47,7 @@
     </p>
 
      <p>
-      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_UPI_Intent_generic()">Launch UPI intent generic : </button>
+      <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_UPI_generic()">Launch UPI generic : </button>
     </p>
 
   </div>
@@ -110,9 +110,9 @@
         window.location.href = upiIntentUrl;
     }
 
-    function launchUPIIntentUsing_UPI_Intent_generic() {
-        const upiIntentUrl = "upi://pay?pa=customer@apl&pn=customer&mc=PayeeMcc&tid=APLMe5cd741f111e1f5524e2fb403a58933&tr=APLMe5cd741f111e1f5524e2fb403a58933&cu=INR&tn=TestRemarks&sit=Y#Intent";
-        console.log("launchUPIIntentUsing_UPI_Intent_generic: ", upiIntentUrl);
+    function launchUPIIntentUsing_UPI_generic() {
+        const upiIntentUrl = "upi://pay?pa=sdglivefix1@yapl&pn=name";
+        console.log("launchUPIIntentUsing_UPI_generic: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
     
