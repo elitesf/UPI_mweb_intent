@@ -58,6 +58,11 @@
       <button style="font-weight: bolder;" onclick="launchUPIIntentUsing_ICICI_Intent()">Launch ICICI CBDC Android : </button>
     </p>
 
+     <p>
+      <button style="font-weight: bolder;" onclick="launchUPIMeta_LinkSec_Intent()">Launch UPI Meta LinkSec : </button>
+    </p>
+
+
   </div>
   <pre id="msg"></pre>
   <div id="requestOutput"></div>
@@ -133,6 +138,12 @@
     function launchUPIIntentUsing_ICICI_Intent() {
         const upiIntentUrl = "intent://pay?pa=sdglivefix1@yapl&pn=name#Intent;scheme=upi;package=com.icici.digitalrupee;end";
         console.log("launchUPIIntentUsing_ICICI_Intent: ", upiIntentUrl);
+        window.location.href = upiIntentUrl;
+    }
+
+    function launchUPIMeta_LinkSec_Intent() {
+        const upiIntentUrl = "upimeta://linksec?version=01&mode=04&metaCode=A03&pa=deviceid@bank&deviceType=GLASS&orgID=123456&query=%7B%22Manufacturer%22%3A%22Lenskart%22%2C%22Device%22%3A%22SmartGlass1.0%22%2C%22DeviceID%22%3A%22ABCD1234%22%7D&expiry=2025-09-10T15%3A00%3A00Z";
+        console.log("launchUPIMeta_LinkSec_Intent: ", upiIntentUrl);
         window.location.href = upiIntentUrl;
     }
 
