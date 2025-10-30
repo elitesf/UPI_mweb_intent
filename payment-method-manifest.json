@@ -1,8 +1,8 @@
 {
   "default_applications": [
-    "https://amazonpay.amazon.in/intent/pay/checkStatus/payment-apay.json"
+    "https://aayushtl.netlify.app/payment-apay.json"
   ],
   "supported_origins": [
-    "https://amazonpay.amazon.in/intent/pay/checkStatus/"
+    "https://aayushtl.netlify.app"
   ]
 }
